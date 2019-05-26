@@ -1,0 +1,29 @@
+<!-- Course SECTION -->
+<section class="user-profile-section bg-light">
+  <h1><div class="text-center">Cours</div></h1><br>
+    <div class="container" >
+      <div class="user-profile">
+        <div class="row">
+          <div class="col-xs-12 col-sm-8">
+            <div class="user-profile-content" *ngIf="course">
+              <ul class="user-contact-details">
+                <h3 class="user-name">Nom du cours</h3>
+                <li>{{course.courseName}}</li>
+              </ul>
+              <br>
+              <ul class="user-contact-details">
+                <h3 class="user-name">Date de creation</h3>
+                <li>{{course.createdAt | date: 'yyyy/MM/dd hh:mm'}}</li>
+              </ul>
+              <br>
+              <ul class="user-contact-details">
+                <h3 class="user-name">Date de modification</h3>
+                <li>{{course.updatedAt | date: 'yyyy/MM/dd hh:mm'}}</li>
+              </ul>
+              <a (click)="goBack()" class="verified-user">Retour</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

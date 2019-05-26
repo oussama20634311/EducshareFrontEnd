@@ -1,0 +1,56 @@
+<header id="pageTop" class="header">
+    <!-- TOP INFO BAR -->
+    <div class="nav-wrapper navbarWhite">
+      <!-- NAVBAR -->
+      <nav id="menuBar" class="navbar navbar-default lightHeader animated" role="navigation">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" routerLink="/">
+              <img src="/assets/images/educshare_logo1.png" >
+            </a>
+          </div>
+          <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a routerLink="/">Acceuil </a></li>
+              <li class=""><a routerLink="/contact">Contact </a></li>
+              <li class="" *ngIf="user_roleEnseignant"><a *ngIf="authenticationService.isUserLoggedIn()"  routerLink="/mes_documents">Mes documents </a></li>
+              <li class="" *ngIf="user_roleEtudiant"><a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/favoris">Mes favoris </a></li>
+              <li class=""><a routerLink="/how-works">Comment ça marche </a></li>
+              <li class=""><a *ngIf="!authenticationService.isUserLoggedIn()" routerLink="/signup">Inscription </a></li>
+              <li class=""><a *ngIf="!authenticationService.isUserLoggedIn()" routerLink="/login">Connexion </a></li>
+              <li class=" dropdown singleDrop" *ngIf="authenticationService.isUserLoggedIn()">
+                  <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"
+                  role="button" aria-haspopup="true" aria-expanded="false">
+                  <a>
+                      <div *ngIf="displayImage; then TemplateImageConverture else TemplateImageDefault" >
+                        </div>
+                          <ng-template #TemplateImageConverture>
+                              <img [src]="converted_image" height="26" width="26" alt="Image User" class="img-circle">
+                          </ng-template>           
+                          <ng-template #TemplateImageDefault>
+                              <img [src]="url" height="26" alt="Image User">
+                          </ng-template> </a>
+                  {{userProfil?.firstName}}<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-left">
+                    <li><a routerLink="/profil">Voir profil</a></li>
+                    <li><a routerLink="/logout">Se déconnecter</a></li>
+                  </ul>
+                </li>
+            </ul>
+          </div>
+          <a class="navbar-btn" *ngIf="!authenticationService.isUserLoggedIn()" 
+          style="padding-right: 8px; padding-left: 13px ;padding-top: 1px; padding-bottom: 2px;" 
+          routerLink="/login"> 
+          <a style="font-size: 12px; color: #000000;"> Vous êtes professeur ?</a> 
+          <br>+ <span>Ajouter document</span></a>
+        </div>
+      </nav>
+    </div>
+</header>

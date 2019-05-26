@@ -1,0 +1,196 @@
+<!-- DASHBOARD PROFILE SECTION -->
+<section class="clearfix bg-dark profileSection">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-5 col-xs-12">
+        <div class="dashboardBoxBg mb30">
+          <div class="profileImage">
+            <div *ngIf="displayImage; then TemplateImageConverture else TemplateImageDefault" >
+            </div>
+              <ng-template #TemplateImageConverture>
+                  <img [src]="converted_image" height="200" width="200" alt="Image User" class="img-img-circle-profile">
+              </ng-template>
+              
+              <ng-template #TemplateImageDefault>
+                  <img [src]="url" height="200" alt="Image User">
+              </ng-template>
+
+            <div class="file-upload profileImageUpload">
+              <div class="upload-area">
+                <input type='file' (change)="onSelectFile($event)" style="height:100%" multiple />
+                <span style="color:red;" *ngIf="isMessage">{{message}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 col-sm-7 col-xs-12">
+        <form [formGroup]="userForm">
+          <div class="dashboardBoxBg">
+            <div class="profileIntro">
+              <h2>Votre profil</h2>
+            </div>
+          </div>
+
+
+          <div class="dashboardBoxBg mt30">
+            <div class="profileIntro">
+              <div class="row">
+                <div class="form-group col-sm-6 col-xs-12">
+                  <label for="Prenom" class="control-label">Prénom*</label>
+                  <input type="text" class="form-control" name="firstName" id="firstName" formControlName="firstName">
+                  <div
+                    *ngIf="userForm.controls.firstName.errors && (userForm.controls.firstName.touched || userForm.controls.firstName.dirty)"
+                    style=color:red>
+                    <div *ngIf="userForm.hasError('required', 'firstName')">Le prénom est obligatoire</div>
+                    <div *ngIf="userForm.hasError('pattern', 'firstName')">Le format est invalide</div>
+                    <div *ngIf="userForm.hasError('minlength', 'firstName')">Le prénom doit avoir au moins 3 caractères
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group col-sm-6 col-xs-12">
+                  <label for="Nom" class="control-label">Nom*</label>
+                  <input type="text" class="form-control" name="lastName" id="lastName" formControlName="lastName">
+                  <div
+                    *ngIf="userForm.controls.lastName.errors && (userForm.controls.lastName.touched || userForm.controls.lastName.dirty)"
+                    style=color:red>
+                    <div *ngIf="userForm.hasError('required', 'lastName')">Le nom est obligatoire</div>
+                    <div *ngIf="userForm.hasError('pattern', 'lastName')">Le format est invalide</div>
+                    <div *ngIf="userForm.hasError('minlength', 'lastName')">Le nom doit avoir au moins 3 caractères</div>
+                  </div>
+                </div>
+
+                <div class="form-group col-xs-12">
+                  <label for="email" class="control-label">Email*</label>
+                  <input type="email" class="form-control" id="email" name="email" formControlName="email">
+                  <div
+                    *ngIf="userForm.controls.email.errors && (userForm.controls.email.touched || userForm.controls.email.dirty)"
+                    style=color:red>
+                    <div *ngIf="userForm.hasError('required', 'email')">Le champ email est obligatoire</div>
+                    <div *ngIf="userForm.hasError('pattern', 'email')">Format email invalide</div>
+                  </div>
+                </div>
+
+                <div class="form-group col-sm-6 col-xs-12">
+                  <label for="date" class="control-label"> Date de naissance*</label>
+                  <input type="date" class="form-control" id="birthDate" name="birthDate" formControlName="birthDate">
+                </div>
+
+                <div class="form-group col-sm-6 col-xs-12">
+                  <label for="Téléphone" class="control-label">Téléphone*</label>
+                  <input type="text" class="form-control" id="telNumber" name="telNumber" formControlName="telNumber">
+                  <div
+                    *ngIf="userForm.controls.telNumber.errors && (userForm.controls.telNumber.touched || userForm.controls.telNumber.dirty)"
+                    style=color:red>
+                    <div *ngIf="userForm.hasError('required', 'telNumber')">Le numéro de téléphone télephone est
+                      obligatoire</div>
+                    <div *ngIf="userForm.hasError('pattern', 'telNumber')">Format invalide</div>
+                    <div *ngIf="userForm.hasError('minlength', 'telNumber')">Le numéro de téléphone doit être
+                      composé de 8 chiffres</div>
+                    <div *ngIf="userForm.hasError('maxlenght', 'telNumber')">Le numéro de téléphone ne peut pas
+                      dépasser 14 chiffres</div>
+                  </div>
+                </div>
+
+                <div class="form-group col-xs-12">
+                  <label for="CIN" class="control-label">CIN ou Passeport*</label>
+                  <input type="text" class="form-control" id="cin" name="cin" formControlName="cin">
+                </div>
+
+
+                <div class="form-group col-sm-6 col-xs-12">
+                    <label for="userCountry" class="control-label">Sélectionner votre pays</label>
+                    <select  formControlName="userCountry"  class="form-control" >
+                        <option value="France">France</option>
+                        <option value="Belgique">Belgique </option>
+                        <option value="Tunisie">Tunisie </option>
+                        <option value="Emirates">Emirates </option>
+                    </select>
+                </div>
+
+                <div class="form-group col-sm-6 col-xs-12">
+                  <label for="ville" class="control-label">Ville*</label>
+                  <input type="text" class="form-control" id="city" name="city" formControlName="city">
+                </div>
+
+                <div class="form-group col-sm-6 col-xs-12">
+                    <label for="userSection" class="control-label">Sélectionner votre section</label>
+                    <select  formControlName="userSection"  class="form-control" >
+                        <option value="Informatique">Informatique</option>
+                        <option value="Mathématique">Mathématique </option>
+                        <option value="Sciences">Sciences </option>
+                        <option value="Lettre">Lettre </option>
+                    </select>
+                </div>
+
+                <div class="form-group col-sm-6 col-xs-12">
+                    <label for="userUniversity" class="control-label">Sélectionner votre université</label>
+                    <select  formControlName="userUniversity"  class="form-control" >
+                        <option value="ENSI">ENSI</option>
+                        <option value="ENIS">ENIS </option>
+                        <option value="FSS">FSS </option>
+                        <option value="FST">FST </option>
+                    </select>
+                </div>
+
+                <div class="form-group col-sm-6 col-xs-12">
+                    <label for="userLevel" class="control-label">Niveau scolaire</label>
+                    <select  formControlName="userLevel"  class="form-control" >
+                      <option value="Bac + 1" >Bac + 1</option>
+                      <option value="Bac + 2" >Bac + 2</option>
+                      <option value="Bac + 3" >Bac + 3</option>
+                      <option value="Bac + 4" >Bac + 4</option>
+                      <option value="Bac + 5" >Bac + 5</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-sm-6 col-xs-12">
+                    <label for="userClass">Classe</label>
+                    <input type="text" class="form-control" id="userClass"
+                     name="userClass" formControlName="userClass">
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="dashboardBoxBg mt30">
+            <div class="profileIntro">
+              <h3>Modifier authentification</h3>
+              <div class="row">
+                <div class="form-group col-xs-12">
+                  <label for="password">Mot de passe</label>
+                  <input type="password" class="form-control" id="password" name="password" formControlName="password"
+                    placeholder="Mot de passe">
+                  <div
+                    *ngIf="userForm.controls.password.errors && (userForm.controls.password.touched || userForm.controls.password.dirty)"
+                    style=color:red>
+                    <div *ngIf="userForm.hasError('required', 'password')">Mot de passe obligatoire</div>
+                    <!-- <div *ngIf="userForm.hasError('minlength', 'password')"> Password must be at least 6 characters</div> -->
+                  </div>
+                </div>
+
+                <div class="form-group col-xs-12">
+                  <label for="confirmPassword">Confirmation du mot de passe</label>
+                  <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                    formControlName="confirmPassword" placeholder="Confirmer votre mot de passe">
+                  <div
+                    *ngIf="userForm.controls.confirmPassword.errors && (userForm.controls.confirmPassword.touched || userForm.controls.confirmPassword.dirty)"
+                    style=color:red>
+                    <div *ngIf="userForm.hasError('required', 'confirmPassword')">La confirmation des mots de passe est obligatoire</div>
+                    <div *ngIf="userForm.hasError('compare', 'confirmPassword')"> Les champs ne sont pas identiques</div>
+                  </div>
+                </div>
+
+                <div class="btn-area mt30 text-center">
+                  <button class="btn btn-primary" type="button" style="padding_button" [disabled]="!userForm.valid"
+                    (click)="updateForm(userForm)">Modifier compte</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

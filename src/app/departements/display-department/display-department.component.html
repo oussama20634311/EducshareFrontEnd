@@ -1,0 +1,29 @@
+<!-- USER PROFILE SECTION -->
+<section class="user-profile-section bg-light">
+  <h1><div class="text-center">Département</div></h1><br>
+    <div class="container" >
+      <div class="user-profile">
+        <div class="row">
+          <div class="col-xs-12 col-sm-8">
+            <div class="user-profile-content" *ngIf="departement">
+              <ul class="user-contact-details">
+                <h3 class="user-name">Nom du département</h3>
+                <li>{{departement.departementName}}</li>
+              </ul>
+              <br>
+              <ul class="user-contact-details">
+                <h3 class="user-name">Date de creation</h3>
+                <li>{{departement.createdAt | date: 'yyyy/MM/dd hh:mm'}}</li>
+              </ul>
+              <br>
+              <ul class="user-contact-details">
+                <h3 class="user-name">Date de modification</h3>
+                <li>{{departement.updatedAt | date: 'yyyy/MM/dd hh:mm'}}</li>
+              </ul>
+              <a (click)="goBack()" class="verified-user">Retour</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

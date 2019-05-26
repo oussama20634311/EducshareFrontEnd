@@ -1,0 +1,28 @@
+<br>
+<form #myForm="ngForm" >
+  <div class="container">
+    <H1>Remplir les données</H1><br>
+    <fieldset class="form-group">
+      <label>Nom de l'université</label>
+      <input type="text" [(ngModel)]="university.universityName"  [ngModelOptions]= "{standalone: true}"  #universityName="ngModel"  class="form-control" required="required">
+    </fieldset>
+
+    <fieldset class="form-group">
+      <label>Acronyme de l'université</label>
+      <input type="text" [(ngModel)]="university.universityAcronyme"  [ngModelOptions]= "{standalone: true}"  #universityAcronyme="ngModel"  class="form-control" required="required">
+    </fieldset>
+
+    <fieldset class="form-group">
+      <label>Pays</label>
+      <select name="university.countryName" [(ngModel)]="university.countryName">
+        <option *ngFor="let country of countries" [value]="country.countryName">{{ country.countryName }}</option>
+      </select>
+    </fieldset>
+
+    <div class="btn-area mt30">
+      <button class="btn btn-primary" type="submit" (click)="save(myForm.value)">Valider</button>
+    </div>
+  </div>
+</form>
+
+

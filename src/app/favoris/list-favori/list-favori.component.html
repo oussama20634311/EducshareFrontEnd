@@ -1,0 +1,63 @@
+
+  <!-- Lis favori Section -->
+  <section class="clearfix bg-dark listyPage">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="dashboardPageTitle">
+
+              <!-- <tr *ngFor="let favori of favoris">
+                  <td>{{favori.documentId}}</td>      
+             </tr> -->
+
+            <br>
+          </div>
+          <div class="table-responsive"  data-pattern="priority-columns">
+            <table class="table listingsTable">
+              <thead>
+                <tr class="rowItem">
+                  <th data-priority="1">PDF</th>
+                  <th data-priority="3">Publié</th>
+                  <th data-priority="5">Note</th>
+                  <th data-priority="4">Vente</th>
+                  <th data-priority="6">Statut</th>
+                  <th data-priority="6"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="rowItem" *ngFor='let document of userDocuments'>
+                  <td>
+                    <ul class="list-inline listingsInfo">
+                      <li style="height: 60%;"><a href="#"><img src="../assets/images/pdf_icon.png" alt="Image Listings"></a></li>
+                      <li>
+                        <h3></h3>
+                        <h5><span class="cityName"></span></h5>
+                        <span class="category">Prix</span>
+                        <p>$5.20 <span class="likeArea"><i class="fa fa-heart-o" aria-hidden="true"></i>10k</span></p>
+                      </li>
+                    </ul>
+                  </td>
+                  <td></td>
+                  <td>
+                    <ul class="list-inline rating">
+                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                      <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                      <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                      <li>(7)</li>
+                    </ul>
+                  </td>
+                  <td>79</td>
+                  <!-- <td><span class="label label-success">Validé</span></td> -->
+                  <td><span class="label label-danger">Non validé</span></td>
+                  <!-- <td><button (click)="goDisplay(document)" style="padding-left: 5px; padding-right: 5px; margin-right: 5px;"  class="btn btn-primary" >Afficher</button></td> -->
+                </tr>
+              </tbody>
+            </table>
+            <!-- <app-pagination  [pager]="pager" (setPage)=setPage($event)></app-pagination> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

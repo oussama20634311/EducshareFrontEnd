@@ -1,0 +1,14 @@
+<br>
+<form #myForm="ngForm" >
+  <div class="container">
+    <H1>Remplir les données</H1><br>
+    <fieldset class="form-group">
+      <label>Nom du cours</label>
+      <input type="text" [(ngModel)]="course.courseName"  [ngModelOptions]= "{standalone: true}" 
+      class="form-control" required="required">
+    </fieldset>
+    <div class="btn-area mt30">
+      <button class="btn btn-primary" type="submit" (click)="save(myForm.value)">Valider le cours</button>
+    </div>
+  </div>
+</form>

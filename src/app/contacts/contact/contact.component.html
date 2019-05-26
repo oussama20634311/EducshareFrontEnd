@@ -1,0 +1,120 @@
+<!-- PAGE TITLE SECTION -->
+<section class="clearfix pageTitleSection bg-image"
+	style="background-image: url(/assets/images/background/bg-page-title.jpg);">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="pageTitle">
+					<h2>Contactez nous</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="clearfix">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4 col-xs-12">
+				<div class="contactInfo">
+					<ul class="list-unstyled list-address">
+						<li>
+							<i class="fa fa-map-marker" aria-hidden="true"></i>
+							Route Gremda, Sfax<br> Tunisie
+						</li>
+						<li>
+							<i class="fa fa-phone" aria-hidden="true"></i>
+							+216 20 634 311 <br>
+						</li>
+						<li>
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<a href="#">oussama@monprepa.tn</a> <a href="#">saif@monprepa.tn</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-8 col-xs-12">
+				<div class="signUpFormArea">
+					<div class="priceTableTitle">
+						<h2>Entrer en contact</h2>
+						<p>N'hésitez pas à nous contacter si vous avez des questions, 
+							si vous souhaitez plus d'informations ou si
+							vous avez une autre demande.</p>
+					</div>
+					<div class="signUpForm">
+						<form [formGroup]="reactiveForm">
+							<div class="formSection">
+								<div class="row">
+
+									<div class="form-group col-sm-6 col-xs-12">
+										<label for="Prenom" class="control-label">Prénom*</label>
+										<input type="text" class="form-control" name="firstName" id="firstName" formControlName="firstName">
+										<div
+											*ngIf="reactiveForm.controls.firstName.errors && (reactiveForm.controls.firstName.touched || reactiveForm.controls.firstName.dirty)"
+											style=color:red>
+											<div *ngIf="reactiveForm.hasError('required', 'firstName')">Le prénom est obligatoire</div>
+											<div *ngIf="reactiveForm.hasError('pattern', 'firstName')">Le prénom est un format invalide</div>
+											<div *ngIf="reactiveForm.hasError('minlength', 'firstName')">Le prénom doit être de 3 caractères
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group col-sm-6 col-xs-12">
+										<label for="Nom" class="control-label">Nom*</label>
+										<input type="text" class="form-control" name="lastName" id="lastName" formControlName="lastName">
+										<div
+											*ngIf="reactiveForm.controls.lastName.errors && (reactiveForm.controls.lastName.touched || reactiveForm.controls.lastName.dirty)"
+											style=color:red>
+											<div *ngIf="reactiveForm.hasError('required', 'lastName')">Le nom est obligatoire</div>
+											<div *ngIf="reactiveForm.hasError('pattern', 'lastName')">Le nom est un format invalide</div>
+											<div *ngIf="reactiveForm.hasError('minlength', 'lastName')">Le nom doit être de 3 caractères</div>
+										</div>
+									</div>
+
+									<div class="form-group col-xs-12">
+										<label for="email" class="control-label">Email*</label>
+										<input type="email" class="form-control" id="email" name="email" formControlName="email">
+										<div
+											*ngIf="reactiveForm.controls.email.errors && (reactiveForm.controls.email.touched || reactiveForm.controls.email.dirty)"
+											style=color:red>
+											<div *ngIf="reactiveForm.hasError('required', 'email')">Email est obligatoire</div>
+											<div *ngIf="reactiveForm.hasError('pattern', 'email')">Email est un format invalide</div>
+										</div>
+									</div>
+
+									<div class="form-group col-xs-12">
+										<label for="Téléphone" class="control-label">Téléphone*</label>
+										<input type="text" class="form-control" id="telNumber" name="telNumber" formControlName="telNumber">
+										<div
+											*ngIf="reactiveForm.controls.telNumber.errors && (reactiveForm.controls.telNumber.touched || reactiveForm.controls.telNumber.dirty)"
+											style=color:red>
+											<div *ngIf="reactiveForm.hasError('required', 'telNumber')">Le numéro de téléphone télephone est
+												obligatoire</div>
+											<div *ngIf="reactiveForm.hasError('pattern', 'telNumber')">Le numéro de téléphone est un format
+												invalide</div>
+											<div *ngIf="reactiveForm.hasError('minlength', 'telNumber')">Le numéro de téléphone doit être
+												composé de 8 chiffres</div>
+											<div *ngIf="reactiveForm.hasError('maxlenght', 'telNumber')">Le numéro de téléphone ne peut pas
+												dépasser 14 chiffres</div>
+										</div>
+									</div>
+
+									<div class="form-group col-xs-12">
+										<label for="textBox" class="control-label">Texte*</label>
+										<textarea class="form-control" rows="3" formControlName="content"></textarea>
+									</div>
+
+									<div class="btn-area mt30 text-center">
+										<button type="submit" [disabled]="!reactiveForm.valid" (click)="saveForm(reactiveForm)"
+											class="btn btn-primary">Envoyer maintenant</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

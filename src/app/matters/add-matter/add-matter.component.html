@@ -1,0 +1,13 @@
+<br>
+<form #myForm="ngForm" >
+  <div class="container">
+    <H1>Remplir les données</H1><br>
+    <fieldset class="form-group">
+      <label>Nom de la matière</label>
+      <input type="text" [(ngModel)]="matter.matterName"  name = "matterName" #matterName="ngModel"  class="form-control" required="required">
+    </fieldset>
+    <div class="btn-area mt30">
+      <button class="btn btn-primary" type="submit" (click)="save(myForm.value)">Valider</button>
+    </div>
+  </div>
+</form>

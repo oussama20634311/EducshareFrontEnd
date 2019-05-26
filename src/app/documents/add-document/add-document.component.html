@@ -1,0 +1,110 @@
+<!-- DASHBOARD PROFILE SECTION -->
+<section class="clearfix bg-dark profileSection">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-5 col-xs-12">
+          <div class="dashboardBoxBg mb30">
+            <div class="profileImage">
+              <div class="file-upload profileImageUpload">
+                <div class="upload-area">
+                  <input type='file' (change)="onSelectFile($event)" style="height:100" />
+                  <span style="color:red;" *ngIf="isMessage">{{message}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 col-sm-7 col-xs-12">
+          <form [formGroup]="myform">
+            <div class="dashboardBoxBg">
+              <div class="profileIntro">
+                <h2>Ajouter un document</h2>
+              </div>
+            </div>
+            <div class="dashboardBoxBg mt30">
+              <div class="profileIntro">
+                <div class="row">
+                  <div class="form-group col-sm-6 col-xs-12">
+                    <label for="documentName" class="control-label">Nom du document*</label>
+                    <input type="text" class="form-control" name="documentName" id="documentName" formControlName="documentName">
+                  </div>
+
+                  <div class="form-group col-sm-6 col-xs-12">
+                      <label for="documentMatter" class="control-label">Matière*</label>
+                      <!-- <select  formControlName="documentMatter"  class="form-control" >
+                        <option *ngFor='let matter of matterList' [value]="matter.matterName">{{ matter.matterName }}</option>
+                      </select> -->
+                      <input type="text" class="form-control" name="documentMatter" id="documentMatter" formControlName="documentMatter">
+                  </div>
+
+                  <div class="form-group col-sm-6 col-xs-12">
+                      <label for="documentTheme" class="control-label">Thème*</label>
+                      <input type="text" class="form-control" name="documentTheme" id="documentName" formControlName="documentTheme">
+                  </div>
+
+                  <div class="form-group col-sm-6 col-xs-12">
+                      <label for="documentType" class="control-label">Type*</label>
+                      <select  formControlName="documentType"  class="form-control" >
+                        <option value="Devoir Surveillé" >Devoir Surveillé</option>
+                        <option value="Concours" >Concours</option>
+                        <option value="Examen" >Examen</option>
+                        <option value="Série d'exercices" >Série d'exercices</option>
+                        <option value="Cours" >Cours</option>
+                        <option value="Cours" >Résumé</option>
+                      </select>
+                  </div>
+
+                  <div class="form-group col-sm-6 col-xs-12">
+                      <label for="documentDepartment" class="control-label">Département*</label>
+                      <input type="text" class="form-control" name="documentDepartment" id="documentDepartment" formControlName="documentDepartment">
+                  </div>
+                  
+                  <div class="form-group col-sm-6 col-xs-12">
+                      <label for="userUniversity" class="control-label">Sélectionner votre université</label>
+                      <select  formControlName="documentUniversity"  class="form-control" >
+                          <option value="ISET">ISET</option>
+                          <option value="ENSI">ENSI</option>
+                          <option value="ENIS">ENIS</option>
+                          <option value="FSS">FSS</option>
+                          <option value="FST">FST</option>
+                      </select>
+                  </div>
+
+                  <div class="form-group col-sm-6 col-xs-12">
+                      <label for="documentLevel" class="control-label">Niveau</label>
+                      <select  formControlName="documentLevel"  class="form-control" >
+                        <option value="Devoir Surveillé" >Bac + 1</option>
+                        <option value="Concours" >Bac + 2</option>
+                        <option value="Examen" >Bac + 3</option>
+                        <option value="Série d'exercices" >Bac + 4</option>
+                        <option value="Cours" >Bac + 5</option>
+                      </select>
+                  </div>
+
+                  <div class="form-group col-sm-6 col-xs-12">
+                      <label for="documentYear" class="control-label">Année universitaire</label>
+                      <select  formControlName="documentYear"  class="form-control" >
+                        <option value="2010-2011">2010-2011</option>
+                        <option value="2011-2012">2011-2012</option>
+                        <option value="2012-2013">2012-2013</option>
+                        <option value="2013-2014">2013-2014</option>
+                        <option value="2014-2015">2014-2015</option>
+                        <option value="2015-2016">2015-2016</option>
+                        <option value="2016-2017">2016-2017</option>
+                        <option value="2017-2018">2017-2018</option>
+                        <option value="2018-2019">2018-2019</option>
+                      </select>
+                  </div>
+
+                  <div class="btn-area mt30 text-center">
+                    <button class="btn btn-primary" type="button" [disabled]="!myform.valid"
+                      (click)="saveForm(myform)">Ajouter document</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>

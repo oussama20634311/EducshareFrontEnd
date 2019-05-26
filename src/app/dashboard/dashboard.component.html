@@ -1,0 +1,28 @@
+<!-- Dashboard header -->
+<section class="navbar-dashboard-area">
+    <nav class="navbar navbar-default lightHeader navbar-dashboard" role="navigation">
+      <div class="container">
+        <!-- Collect the nav values from component -->
+        <div class="collapse navbar-collapse navbar-dash">
+          <ul class="nav nav-tabs side_nav" role="tablist">
+              <li *ngFor="let table of tables">
+                <a (click)="selectedtable = table" >{{table}}</a>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+</section>
+
+<!-- Dashboard Body -->
+<div class="tab-content">
+    <div *ngIf="selectedtable === tables[0]" role="tabpanel" class="tab-pane active">Users list</div>
+    <div *ngIf="selectedtable === tables[1]" role="tabpanel" class="tab-pane active">Document List</div>
+    <div *ngIf="selectedtable === tables[2]" role="tabpanel" class="tab-pane active"><app-list-department></app-list-department></div>
+    <div *ngIf="selectedtable === tables[3]" role="tabpanel" class="tab-pane active"><app-list-course></app-list-course></div>
+    <div *ngIf="selectedtable === tables[4]" role="tabpanel" class="tab-pane active"><app-list-matters></app-list-matters></div>
+    <div *ngIf="selectedtable === tables[5]" role="tabpanel" class="tab-pane active"><app-list-university></app-list-university></div>
+    <div *ngIf="selectedtable === tables[6]" role="tabpanel" class="tab-pane active"><app-list-contact></app-list-contact></div>
+    <div *ngIf="selectedtable === tables[7]" role="tabpanel" class="tab-pane active">Notification</div>
+    <div *ngIf="selectedtable === tables[8]" role="tabpanel" class="tab-pane active">Commentaires</div>
+</div>

@@ -1,0 +1,46 @@
+<section class="clearfix bg-dark dashboardOrders">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+          <div class="table-responsive bgAdd"  data-pattern="priority-columns">
+            <table id="ordersTable" class="table table-small-font table-bordered table-striped" cellspacing="0" width="100%">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nom</th>
+                  <th>Prénom</th>
+                  <th>Email</th>
+                  <th>Téléphone</th>
+                  <th>Question</th>
+                  <th>Date de création</th>
+                  <th>Date de modification</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let message of pagedItems">
+                  <td>{{message.id}}</td>
+                  <td>{{message.firstName}}</td>
+                  <td>{{message.lastName}}</td>
+                  <td>{{message.email}}</td>
+                  <td>{{message.telNumber}}</td>
+                  <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:500px;">{{message.content}}</td>
+                  <td>{{message.createdAt | date: "yyyy/MM/dd hh:mm"}}</td>
+                  <td>{{message.updatedAt | date: "yyyy/MM/dd hh:mm"}}</td>
+                  <td>
+                    <div>
+                      <button (click)="goDisplay(message)" style="padding-left: 5px; padding-right: 5px; margin-right: 5px;"  class="btn btn-primary" >Afficher</button>
+                      <button (click)="delete(message)" style="padding-left: 5px; padding-right: 5px;  background-color: red;"  class="btn">Supprimer</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+              </tr>
+              </tbody>
+            </table>
+            <app-pagination  [pager]="pager" (setPage)=setPage($event)></app-pagination>
+          </div>
+			</div>
+		</div>
+	</div>
+</section>

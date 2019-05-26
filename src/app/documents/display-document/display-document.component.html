@@ -1,0 +1,110 @@
+<!-- Document Details -->
+<section class="clearfix paddingAdjustBottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="listingTitleArea">
+          <h2>{{documentName}}</h2>
+          <div class="single-list">
+              <div class="media comments-media">
+                <div class="media-body">
+                  <div *ngIf="matterExist">
+                    <h5>Matiére du document</h5>
+                    <p>{{documentMatter}}</p>
+                  </div>
+                  <div *ngIf="themeExist">
+                    <h5>Théme du document</h5>
+                    <p>{{documentTheme}}</p>
+                  </div>
+                  <div *ngIf="typeExist">
+                    <h5>Type du document</h5>
+                    <p>{{documentType}}</p>
+                  </div>
+                  <div *ngIf="yearExist">
+                    <h5>Année scolaire</h5>
+                    <p>{{documentYear}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="listingReview">
+            <ul class="list-inline rating">
+              <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+            </ul>
+            <span>( 5 notes )</span>
+            <ul class="list-inline captionItem">
+              <li><i class="fa fa-heart-o" aria-hidden="true"></i> 620</li>
+            </ul>
+            <a class="btn btn-primary" (click)="addToFavori()">Ajouter au favoris</a>
+            <a class="btn btn-primary" style="margin-right: 5px">Acheter document</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PDF file -->
+<!-- <embed style="width: 100%; height:1000px;" [src]="domSanitizer.bypassSecurityTrustResourceUrl(pdfFile)" type="application/pdf"> -->
+
+  <embed [src]="domSanitizer.bypassSecurityTrustResourceUrl(enonceName)" 
+   style="width: 100%;height: 1000px"  type="application/pdf">
+
+<section class="clearfix paddingAdjustTop">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-xs-12">
+        <div class="detailsInfoBox">
+            <div class="single-list">
+                <div class="media comments-comment">
+                  <div class="media-left"  *ngIf="displayAvatar; then UserAvatar else DefaultAvatar" ></div>
+                    <ng-template #UserAvatar>
+                        <img [src]="userAvatar" alt="User Image" class="img-circleDocument">
+                    </ng-template>
+
+                    <ng-template #DefaultAvatar>
+                        <img src="assets/images/avatar.png" alt="User Image" class="img-circle" >
+                    </ng-template>
+
+                  <div class="media-body">
+                    <h4 class="media-heading">{{user.firstName}} {{user.lastName}}</h4>
+                    <div class="date">Public le {{createdAt | date: "yyyy/MM/d"}}</div>
+                  </div>
+                </div>
+            </div>
+
+            <app-list-comment></app-list-comment>
+            <app-add-comment></app-add-comment>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal Displayed After Adding to Favori-->
+
+<div class="modal fade" #successModal id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="!submitted">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">EducShare</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+      <div class="modal-body">
+        Ce document a été ajouté  votre liste de favoris !!
+      </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" style="padding-left: 5px; padding-right: 5px;" data-dismiss="modal">Fermer</button>
+    </div>
+  </div>
+</div>
+</div>
+

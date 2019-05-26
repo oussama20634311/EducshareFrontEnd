@@ -1,0 +1,153 @@
+<!-- PAGE TITLE SECTION -->
+<div *ngIf="affiche==true">
+<section class="clearfix pageTitleSection" style="background-image: url();">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="pageTitle">
+            <h2>Comment ça marche</h2>
+          </div>
+          <div class="listingReview">
+            <ul class="list-inline captionItem">
+              <a class="btn btn-primary" style="margin-left: 10px;" (click)="Display_Professeur()">PROFESSEUR</a>
+            </ul>
+              <a class="btn btn-primary" style="margin-left: 5px;"(click)="Display_Etudiant()">ETUDIANT</a> 
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WORKS SECTION -->
+  <section class="clearfix howWorksSection">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="howWorksInner">
+            <div class="row">
+              <div class="col-sm-4 col-sm-push-8 col-xs-12">
+                <div class="howWorksImage text-right"><img src="/assets/images/works/works-big-1.png" alt="Image Works"></div>
+              </div>
+              <div class="col-sm-8 col-sm-pull-4 col-xs-12">
+                <div class="howWorksInfo text-left">
+                  <H4>Etape 1</H4>
+                  <h2>Partager vos documents</h2>
+                  <h3>Ayez le plaisir de partager votre passion, vos documents et vos corrigés .</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="howWorksInner">
+            <div class="row">
+              <div class="col-sm-4 col-xs-12">
+                <div class="howWorksImage text-left"><img src="/assets/images/works/works-big-2.png" alt="Image Works"></div>
+              </div>
+              <div class="col-sm-8 col-xs-12">
+                <div class="howWorksInfo text-right">
+                    <H4>Etape 2</H4>
+                    <h2>AIDER VOS ÉTUDIANTS</h2>
+                    <h3>Aider Plus Que 300 000 Étudiants À Réussir Leur Carrière Universitaire.</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="howWorksInner">
+            <div class="row">
+              <div class="col-sm-4 col-sm-push-8 col-xs-12">
+                <div class="howWorksImage text-right"><img src="/assets/images/works/works-big-3.png" alt="Image Works"></div>
+              </div>
+              <div class="col-sm-8 col-sm-pull-4 col-xs-12">
+                <div class="howWorksInfo text-left">
+                    <H4>Etape 3</H4>
+                    <h2>PLUS DE REVENUS</h2>
+                    <h3>Obtenir Un Complément De Revenus En Choisissant Vos Tarifs.</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div classe="text-center">
+             <h2>SOYER PARMI LES PREMIERS, AYEZ DES PRIVILÈGES, LE LANCEMENT SERA DANS 3 MOIS !</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+
+<!-- PAGE TITLE SECTION -->
+<div *ngIf="affiche==false">
+    <section class="clearfix pageTitleSection" style="background-image: url();">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="pageTitle">
+                <h2>Comment ça marche</h2>
+              </div>
+              <div class="listingReview">
+                <ul class="list-inline captionItem">
+                  <a class="btn btn-primary" style="margin-left: 10px;" (click)="Display_Professeur()">PROFESSEUR</a>
+                </ul>
+                  <a class="btn btn-primary" style="margin-left: 5px;" (click)="Display_Etudiant()">ETUDIANT</a> 
+            </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <!-- HOW WORKS SECTION -->
+      <section class="clearfix howWorksSection">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="howWorksInner">
+                <div class="row">
+                  <div class="col-sm-4 col-sm-push-8 col-xs-12">
+                    <div class="howWorksImage text-right"><img src="/assets/images/works/works-big-1.png" alt="Image Works"></div>
+                  </div>
+                  <div class="col-sm-8 col-sm-pull-4 col-xs-12">
+                    <div class="howWorksInfo text-left">
+                      <H4>Etape 1</H4>
+                      <h2>{{partgerDocument}} {{ChercherCeQueVousVoulez}}</h2>
+                      <h3>{{partagerDocumentCorriger}} {{trouvezDesAnnalesAvecDesCorriges}}</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="howWorksInner">
+                <div class="row">
+                  <div class="col-sm-4 col-xs-12">
+                    <div class="howWorksImage text-left"><img src="/assets/images/works/works-big-2.png" alt="Image Works"></div>
+                  </div>
+                  <div class="col-sm-8 col-xs-12">
+                    <div class="howWorksInfo text-right">
+                        <H4>Etape 2</H4>
+                        <h2>{{aiderVosEtudiants}}{{trouverEtAchetezVosDocument}}</h2>
+                        <h3>{{aiderPlusQueEudiant}} {{choisirEtAcheterLesDocument}}</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="howWorksInner">
+                <div class="row">
+                  <div class="col-sm-4 col-sm-push-8 col-xs-12">
+                    <div class="howWorksImage text-right"><img src="/assets/images/works/works-big-3.png" alt="Image Works"></div>
+                  </div>
+                  <div class="col-sm-8 col-sm-pull-4 col-xs-12">
+                    <div class="howWorksInfo text-left">
+                        <H4>Etape 3</H4>
+                        <h2>{{plusDeRevenus}} {{commencezVotreRevision}}</h2>
+                        <h3>{{obtenirUnCompletement}} {{commencerVotreRevisionAvecLesSupports}}</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div classe="text-center">
+                 <h2>SOYER PARMI LES PREMIERS, AYEZ DES PRIVILÈGES, LE LANCEMENT SERA DANS 3 MOIS !</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
